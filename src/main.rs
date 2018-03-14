@@ -17,6 +17,6 @@ fn main() {
 
     let q_num = rand::thread_rng().gen_range(1,quotes.len());
 
-    println!("\"{quote}\" \n-Stephen Hawking, 1942-2018", quote = quotes[q_num]);
+    println!("\t\"{quote}\" \n\n\t\t\t-Stephen Hawking, 1942-2018", quote = quotes[q_num]);
 
 }
