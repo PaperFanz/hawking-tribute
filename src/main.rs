@@ -15,13 +15,15 @@ fn main() {
                     "People won't have time for you if you are always angry or complaining.",
                     "We only have to look at ourselves to see how intelligent life might develop into somehting we shouldn't want to meet.",
                     "Not only does God play dice, but... sometimes he throws them where they cannot be seen."];
-
-    let q_num = rand::thread_rng().gen_range(1,quotes.len());
     
+    let mut quote_line = String::from("    \"");
+    let q_num = rand::thread_rng().gen_range(1,quotes.len());
+    quote_line.push_str(quotes[q_num]);
+    quote_line.push_str("\"");
+
     let wrapper = textwrap::Wrapper::with_termwidth();
     let mut author = String::with_capacity(wrapper.width);
     let mut author_offset = 0;
-
     if wrapper.width >= 27 {
         author_offset = wrapper.width - 27;
     }
@@ -29,10 +31,9 @@ fn main() {
     for _ in 0..author_offset {
         author.push_str(" ");
     }
-
     author.push_str("-Stephen Hawking, 1942-2018");
 
 
-    println!("\"{}\"" , wrapper.fill(quotes[q_num]));
+    println!("{}" , wrapper.fill(&quote_line[..]));
     println!("{}", author);
 }
