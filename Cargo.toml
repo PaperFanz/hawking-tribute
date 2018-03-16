@@ -5,3 +5,4 @@ authors = ["PaperFanz <petefan.7@gmail.com>"]
 
 [dependencies]
 rand = "0.4.2"
+textwrap = { version = "0.9", features = ["term_size"]}

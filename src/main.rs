@@ -1,4 +1,5 @@
 extern crate rand;
+extern crate textwrap;
 
 use rand::Rng;
 
@@ -16,7 +17,22 @@ fn main() {
                     "Not only does God play dice, but... sometimes he throws them where they cannot be seen."];
 
     let q_num = rand::thread_rng().gen_range(1,quotes.len());
+    
+    let wrapper = textwrap::Wrapper::with_termwidth();
+    let mut author = String::with_capacity(wrapper.width);
+    let mut author_offset = 0;
 
-    println!("\t\"{quote}\" \n\n\t\t\t-Stephen Hawking, 1942-2018", quote = quotes[q_num]);
+    if wrapper.width >= 27 {
+        author_offset = wrapper.width - 27;
+    }
 
+    for _ in 0..author_offset {
+        author.push_str(" ");
+    }
+
+    author.push_str("-Stephen Hawking, 1942-2018");
+
+
+    println!("\"{}\"" , wrapper.fill(quotes[q_num]));
+    println!("{}", author);
 }
