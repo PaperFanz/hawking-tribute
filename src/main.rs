@@ -13,7 +13,7 @@ fn main() {
                     "Life would be tragic if it weren't funny.", 
                     "I have no idea. People who boast about their IQ are losers.",
                     "People won't have time for you if you are always angry or complaining.",
-                    "We only have to look at ourselves to see how intelligent life might develop into somehting we shouldn't want to meet.",
+                    "We only have to look at ourselves to see how intelligent life might develop into something we shouldn't want to meet.",
                     "Not only does God play dice, but... sometimes he throws them where they cannot be seen."];
     
     let mut quote_line = String::from("    \"");
